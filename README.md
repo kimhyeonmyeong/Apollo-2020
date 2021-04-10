@@ -1,68 +1,105 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Apollo
 
-## Available Scripts
+웹에 관해서, 그 중에서도 Apollo에 대해서 공부하고 강의들을 수강한뒤, 최종 실습 파트 부분에서 만든 코드입니다.
 
-In the project directory, you can run:
+https://kimsmartblog.tistory.com/
 
-### `yarn start`
+블로그 Web 파트 - GraphQL에 기능별로 정리되어있습니다.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+***
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## 강의 제목 및 출처
+https://nomadcoders.co/react-graphql-for-beginners
 
-### `yarn test`
+Web front, backend Full stack Nomad 선생님
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+***
 
-### `yarn build`
+## 목차
+![image](https://user-images.githubusercontent.com/44837403/114277045-6e211100-9a64-11eb-8d2c-4a95f3e1467d.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+***
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## 진행 기간
+2020-08-06 ~ 2020-08-11
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+***
 
-### `yarn eject`
+## 프로그램 기능
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Apollo 사용을 위한 환경 setting 하기
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npx create-react-app apollo-2019
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+cd apollo-2020
+yarn start
+깃설정하기
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Movie app built with Apollo, Graphql, React
 
-## Learn More
+styled componenets, react-router-dom, react apollo를 사용할 것임.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+styled components: For Css react-router-dom : For router,
+ apollo-boost, @apollo/react-hooks : For hooks >> @apollo/client graphql
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Apollo
+graphql api를 사용하기 가장 좋은 방식. query를보내거나 mutation을 보냄.
+restapi: json으로 보냄.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+mv apollo-2019 apollo-2020 :  이름업데이트 하기
 
-### Analyzing the Bundle Size
+yarn add styled-components react-router-dom apollo-boost @apollo/react-hooks
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### GraphQL 서버와 연동하기
 
-### Making a Progressive Web App
+![image](https://user-images.githubusercontent.com/44837403/114277343-c0166680-9a65-11eb-85ff-8cf5fb5be540.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+아폴로 에서 Client를 생성해주고 GraphQL과 연결해준다. url은 한번만 입력해주면 된다.
+https://www.apollographql.com/docs/react/get-started/
+아폴로 사용법
 
-### Advanced Configuration
+#### Get Movie Query를 작성하고 fetch, post 대신에 Graphql 서버에서 데이터를 받아와서 사용하기
+![image](https://user-images.githubusercontent.com/44837403/114277356-cd335580-9a65-11eb-9da0-0c0d3fb4168c.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+fetch나 post를 일일히 하지 않고서도 graphql 서버에서 데이터를 받아와서 사용을 하였다. 이게바로 apollo의 장점이라고 할 수 있다.
+원하는 query형식 역시 지정해서 사용을 하였다. 또한 loading상태와 error 및 데이터 역시 useQuery를 사용함으로써 얻을 수 있다.
 
-### Deployment
+#### 영화 포스터를 클릭하면 상세 정보로 이동해주는 Route 기능 만들어주기
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+react-router-dom 의 HashRouter를 사용해서 Route 기능을 구현해주었다.
 
-### `yarn build` fails to minify
+#### 서버로부터 받아온 데이터 각각의 id를 이용해서 Route 로 각각 Linke에 전송하는데 사용하기
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ Home.js에서는 useQuery를 이용해서 apollo가 서버로부터 전해주는 데이터와 loading의 상태를 받는다.
+이를 이용해 기능을 구성하였고 reat-router-dom의 Link 기능을 사용하기 위해서 들어오는 데이터의 movies 각각의 object에 id를 부여하였다. 이때 key는 필수. 링크를 부여하기위해서 Movie.js라는 파일을 만들었고 여기서 Link를 import하고 Link to를 이용해서 id에 링크를 부여하였다.
+ Detail.js에서는 지정되는 id에 해당하는 Movie정보를 얻어오는 것을 고려하였다. 그에 따라 query도 id를 인자로 부여하였고 (이때 이 id는 필수값으로 !가 있다.) id는 apollo의 useParams를 사용하였다. 또, id를 인자로 주기위해서 useQuery의 varables도 지정하였다,
+ 주의할점은, id를 varable로 줄때 int형으로 변환해주어야 한다는 점이다. Int형으로 query를 지정하였기 때문이다.
+ 
+ #### styled-components를 사용해서 각 component에 css 요소 넣어주기
+ 
+ styled-components 를 import해서 css를 효과적으로 사용할 수 있도록 하였다. react의 component 구성요소에 css를 부여하였고 각 component에 맞는 data역시 graphql 서버에서 받아와서 배정하였다. 이때 graphql의 docs를 확인해보고 query에 맞는 데이터들을 불렀는지 유의할 필요가 있다. 
+
+***
+
+  #### 출력화면
+![image](https://user-images.githubusercontent.com/44837403/114277831-dc1b0780-9a67-11eb-8c19-ff34a498a831.png)
+![image](https://user-images.githubusercontent.com/44837403/114277837-e0472500-9a67-11eb-9843-544c7085521f.png)
+![image](https://user-images.githubusercontent.com/44837403/114277844-e4734280-9a67-11eb-9866-bde5851bb8c2.png)
+
+ 
+
+***
+
+
+## 느낀점
+
+방학동안 하루 평균 7~8시간을 투자하면서 Web에 대한 공부를 진행하였습니다. 코로나가 터진 상황이였고 당시 막 편입한 학생이였던만큼 사실 웹이나 어플같이 실질적인 프로젝트를 만들기 위한 공부가 부족한 상태였습니다. 그래서 당장 프로젝트를 시작하기보다는 웹과 어플에 대해서 실질적으로 만들 수 있는 공부를 진행하고자 마음먹었고
+꽤나 열심히 공부를 진행했었습니다. 그 결과로 VanliaJS, ReactJS, ReactNative, GraphQL, Apollo에 대해서 공부를 진행할 수 있었고 당초 계획대로 이제 ReactNative를
+이용한 앱만들기 공부를 진행할 계획입니다. 이번 방학동안 힘들었지만 그래도 꾸준하게 공부를 진행했고 어느정도 웹을 구현하는데 있어서 자바스크립트가 어떤식으로
+이용이 될 수 있는지, 서버로부터 데이터는 어떻게 받아와서 어떤식으로 웹화면에 적용될 수 있는지에 대해서 배울 수 있었습니다.
+
+
+
+
+
