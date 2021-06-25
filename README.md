@@ -1,4 +1,4 @@
-# Apollo
+## Apollo
 
 웹에 관해서, 그 중에서도 Apollo에 대해서 공부하고 강의들을 수강한뒤, 최종 실습 파트 부분에서 만든 코드입니다.
 
@@ -6,24 +6,20 @@ https://kimsmartblog.tistory.com/
 
 블로그 Web 파트 - GraphQL에 기능별로 정리되어있습니다.
 
-***
 
 ## 강의 제목 및 출처
 https://nomadcoders.co/react-graphql-for-beginners
 
 Web front, backend Full stack Nomad 선생님
 
-***
 
 ## 목차
 ![image](https://user-images.githubusercontent.com/44837403/114277045-6e211100-9a64-11eb-8d2c-4a95f3e1467d.png)
 
-***
 
 ## 진행 기간
 2020-08-06 ~ 2020-08-11
 
-***
 
 ## 프로그램 기능
 
@@ -80,16 +76,11 @@ react-router-dom 의 HashRouter를 사용해서 Route 기능을 구현해주었�
  
  styled-components 를 import해서 css를 효과적으로 사용할 수 있도록 하였다. react의 component 구성요소에 css를 부여하였고 각 component에 맞는 data역시 graphql 서버에서 받아와서 배정하였다. 이때 graphql의 docs를 확인해보고 query에 맞는 데이터들을 불렀는지 유의할 필요가 있다. 
 
-***
 
-  #### 출력화면
+ ## 결과 
 ![image](https://user-images.githubusercontent.com/44837403/114277831-dc1b0780-9a67-11eb-8c19-ff34a498a831.png)
 ![image](https://user-images.githubusercontent.com/44837403/114277837-e0472500-9a67-11eb-9843-544c7085521f.png)
 ![image](https://user-images.githubusercontent.com/44837403/114277844-e4734280-9a67-11eb-9866-bde5851bb8c2.png)
-
- 
-
-***
 
 
 ## 느낀점
